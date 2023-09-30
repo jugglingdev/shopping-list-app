@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+## Project Overview
+
+- nesting components
+- new bootstrap classes (.container-fluid, .navbar-brand, .navbar-collapse, .navbar-right, .dropdown, .dropdown-toggle, .dropdown-menu, .caret, .clearfix, .pull-left, .pull-right, .img-responsive) 
+- `role="button"` on `a` tag
