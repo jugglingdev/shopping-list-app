@@ -54,6 +54,18 @@ Another small tidbit I learned was using `role="button"` on an anchor tag.  I've
 
 ### Phase 2: Components & Data Binding
 
+In this phase of building the Shopping List app, I added navigation, passed data with property and event binding, and added the feature to add ingredients to the shopping list.
+
+To make the navigation functional, I added click events to `recipes` and `Shopping List` in the `header` that calls `onSelect()` and passed in either `recipe` or `shopping-list`.  Then, I output the passed string as `featureSelected`, a new `EventEmitter`.  In `app.component.html`, I added an event listener on `featureSelected` that calls `onNavigate($event)`, updating the `loadedFeature` property in `app.component.ts`.  Finally, I added `*ngIf` statements to the `app-recipes` and `app-shopping-list` elements to display the view selected by the user.
+
+Next up was passing recipe data with property binding.  For this, I set up the code for a single `recipe-item` and `@Input() recipe: Recipe` from `recipe.model.ts`.  I then added `*ngFor` to `recipe-list` to iterate through each `recipe-item`.  I used property binding to bind the `recipe` property from `recipe-item.component.ts` to the iterable item.  From here, I used a combination of event and property binding to display the recipe details of the selected recipe.
+
+Side note: while incorporating the features in this phase, I noticed a trend of starting with the child component and working out to the parent.  This makes a nice flow when working with these types of data binding examples.
+
+Lastly, I added a feature to allow the user to input a name and amount for a given ingredient and add that ingredient to the shopping list.  To do so, I added local references to `nameInput` and `amountInput` in the `shopping-edit` template and set up `@ViewChild()` decorators for each in the TypeScript.  Then, I added a `(click)` event listener on the `add` button that calls `onAddItem`, emitting `newIngredient`.  The `(ingredientAdded)` listener in the `shopping-list` template then calls `onIngredientAdded`, which pushes the new ingredient to the `ingredients` array.  Both the ingredient name and amount are displayed in the list.
+
+This phase included a lot of new dynamic parts, so it took a lot of back-and-forth to comprehend. Still, I'm starting to see patterns working with different types of data binding.  That's a plus.
+
 ### Phase 3: Directives
 
 ### Phase 4: Services & Dependency Injection
