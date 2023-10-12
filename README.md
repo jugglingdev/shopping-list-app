@@ -68,6 +68,10 @@ This phase included a lot of new dynamic parts, so it took a lot of back-and-for
 
 ### Phase 3: Directives
 
+Next up, I created a custom directive to open and close the Manage and Manage Recipe dropdown menus.  The directive uses the `@HostListener` decorator to listen to a click event and call the `toggleOpen()` method.  This method toggles the `isOpen` property between `true` and `false`.  The directive also uses the `@HostBinding` decorator to bind to the Bootstrap class `open` to the directive property `isOpen` in order to support `toggleOpen()`.
+
+This was a simple step and a good example of utilizing a custom directive.
+
 ### Phase 4: Services & Dependency Injection
 
 ### Phase 5: Routing
