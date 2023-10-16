@@ -74,6 +74,12 @@ This was a simple step and a good example of utilizing a custom directive.
 
 ### Phase 4: Services & Dependency Injection
 
+In this step, I created two services, `recipe` and `shopping-list`, to store the recipe and ingredients arrays respectively.  Adding these services centralized the two lists and also streamlined the methods triggered by click events.  Instead of passing data child to parent, upstream multiple times, the data now goes straight to the service and out from there wherever it is needed.
+
+One important concept from this step was, when adding ingredients to the shopping list, emitting a slice, or copy of the new array, instead of the original to ensure that the original does not get edited accidentally.  I pulled in the Observer pattern to subscribe the shopping list to the change so it displays the updated array.
+
+Another neat concept was adding the feature to add multiple ingredients to the shopping list.  Previously, the user could only add a single ingredient name and amount to the list at a time.  However, the new feature allows the user to add all the ingredients from a given recipe to the shopping list - all thanks to both services!
+
 ### Phase 5: Routing
 
 ### Phase 6: Observables
