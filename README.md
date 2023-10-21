@@ -82,6 +82,18 @@ Another neat concept was adding the feature to add multiple ingredients to the s
 
 ### Phase 5: Routing
 
+This phase consisted of implementing routing.  I set up routes for the Recipes and Shopping List pages, replacing previous `*ngIf` directives as well as child pages for displaying each recipe by ID and modes for creating a new recipe and editing a current recipe.
+
+One important takeaway is that the order of the declared paths matters.  I had to put the child route `'new'` before `':id'` because Angular will match the first path.  Meaning, if you typed `/new` as the path with the order swapped, Angular would interpret `new` as the `id` and result in an error.
+
+Another takeaway was adding the following logic to check whether the app is in edit mode or not (the default value of `editMode` is `false`):
+
+```ts
+  this.editMode = params['id'] != null;
+```
+
+I liked seeing how using routing cleaned up the code by simplifying the syntax.  Even using the `routerLinkActive` attribute kept adding the `active` class easy and straightforward for active links.
+
 ### Phase 6: Observables
 
 ### Phase 7: Forms
