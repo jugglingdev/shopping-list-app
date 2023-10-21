@@ -96,6 +96,8 @@ I liked seeing how using routing cleaned up the code by simplifying the syntax. 
 
 ### Phase 6: Observables
 
+In this phase, I replaced the `EventEmitters` with `Subject`.  This meant also changing the `emit` methods to `next` and storing the `Subscription` as a property.  Then, I implements `OnDestroy` to unsubscribe the observers to prevent memory leaks or unexpected side effects.
+
 ### Phase 7: Forms
 
 ### Phase 8: Http
