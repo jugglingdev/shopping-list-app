@@ -100,6 +100,14 @@ In this phase, I replaced the `EventEmitters` with `Subject`.  This meant also c
 
 ### Phase 7: Forms
 
+This part of the project involved adding a template-driven shopping list form and a reactive recipe edit form.
+
+One thing I liked doing was tweakeing the Add button so that it would change to Update when in edit mode. This meant I didn't need to add a separate button; the text and functionality in the background would simply switch modes. A related feature was conditionally displaying the Delete button when in edit mode.
+
+The Observer method came in handy here. I set up a `recipesChanged` subject in the `RecipesService` so that the displayed list of recipes would update any time a recipe was edited or a new recipe was added.
+
+Another neat feature was adding an image preview when adding a new recipe - great for UI/UX.  To do this, I created a local reference of the `imagePath` and bound its value to the image `src` property. 
+
 ### Phase 8: Http
 
 ## Reflection
