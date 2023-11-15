@@ -63,12 +63,13 @@ export class AuthService {
 
   private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
-          const user = new User(
-            email,
-            userId,
-            token,
-            expirationDate
-          )
+    const user = new User(
+      email,
+      userId,
+      token,
+      expirationDate
+    );
+    this.user.next(user);
   }
 
   private handleError(errorRes: HttpErrorResponse) {
@@ -80,11 +81,8 @@ export class AuthService {
       case 'EMAIL_EXISTS':
         errorMessage = 'This email exists already';
         break;
-      case 'EMAIL_NOT_FOUND':
-        errorMessage = 'This email does not exist.';
-        break;
-      case 'INVALID_PASSWORD':
-        errorMessage = 'This password is not correct.'
+      case 'INVALID_LOGIN_CREDENTIALS':
+        errorMessage = 'This email or password is invalid.';
         break;
     }
     return throwError(errorMessage);
