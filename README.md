@@ -110,6 +110,10 @@ Another neat feature was adding an image preview when adding a new recipe - grea
 
 ### Phase 8: Http
 
+In this part of the project, I set up a backend in Firebase using Realtime Database to store data.  The DataStorage Service is responsible for both storing and fetching recipes.  Both `map` and `tap` are used in `fetchRecipes()` to correctly handle the recipe data and display it on the recipes page.
+
+
+
 ## Reflection
 
 ## Acknowledgements
