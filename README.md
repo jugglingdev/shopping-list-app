@@ -16,7 +16,7 @@ This project was completed as part of Maximilian Schwarzm&uuml;ller's course [An
     - [Phase 7: Forms](#phase-7-forms)
     - [Phase 8: Http](#phase-8-http)
   - [Reflection](#reflection)
-  - [Acknowledgements](#acknowledgements)
+  - [Acknowledgments](#acknowledgements)
 
 ## Project Overview
 
@@ -38,9 +38,9 @@ Incorporating some OOP (Object Oriented Programming), I made two class files tha
 
 I also set up the start HTML for each component with Bootstrap classes. I used several new Bootstrap classes including:
 
-- `.container-fluid`: creates a responsive, full-width container than spans entire viewport
+- `.container-fluid`: creates a responsive, full-width container that spans the entire viewport
 - `.navbar-brand`: applied to anchor element; used for website branding or logo
-- `.navbar-collapse`: creates a collapsible navigation menu fo smaller screen sizes
+- `.navbar-collapse`: creates a collapsible navigation menu for smaller screen sizes
 - `.navbar-right`: aligns elements to the right side of a navbar
 - `.dropdown`: creates a dropdown menu; applied to a list element or group of elements
 - `.dropdown-toggle`: opens or toggles the associated dropdown menu; applied to the trigger element
@@ -60,7 +60,7 @@ To make the navigation functional, I added click events to `recipes` and `Shoppi
 
 Next up was passing recipe data with property binding.  For this, I set up the code for a single `recipe-item` and `@Input() recipe: Recipe` from `recipe.model.ts`.  I then added `*ngFor` to `recipe-list` to iterate through each `recipe-item`.  I used property binding to bind the `recipe` property from `recipe-item.component.ts` to the iterable item.  From here, I used a combination of event and property binding to display the recipe details of the selected recipe.
 
-Side note: while incorporating the features in this phase, I noticed a trend of starting with the child component and working out to the parent.  This makes a nice flow when working with these types of data binding examples.
+Side note: while incorporating the features in this phase, I noticed a trend of starting with the child component and working up to the parent.  This makes a nice flow when working with these types of data-binding examples.
 
 Lastly, I added a feature to allow the user to input a name and amount for a given ingredient and add that ingredient to the shopping list.  To do so, I added local references to `nameInput` and `amountInput` in the `shopping-edit` template and set up `@ViewChild()` decorators for each in the TypeScript.  Then, I added a `(click)` event listener on the `add` button that calls `onAddItem`, emitting `newIngredient`.  The `(ingredientAdded)` listener in the `shopping-list` template then calls `onIngredientAdded`, which pushes the new ingredient to the `ingredients` array.  Both the ingredient name and amount are displayed in the list.
 
@@ -68,13 +68,13 @@ This phase included a lot of new dynamic parts, so it took a lot of back-and-for
 
 ### Phase 3: Directives
 
-Next up, I created a custom directive to open and close the Manage and Manage Recipe dropdown menus.  The directive uses the `@HostListener` decorator to listen to a click event and call the `toggleOpen()` method.  This method toggles the `isOpen` property between `true` and `false`.  The directive also uses the `@HostBinding` decorator to bind to the Bootstrap class `open` to the directive property `isOpen` in order to support `toggleOpen()`.
+Next up, I created a custom directive to open and close the Manage and Manage Recipe dropdown menus.  The directive uses the `@HostListener` decorator to listen to a click event and call the `toggleOpen()` method.  This method toggles the `isOpen` property between `true` and `false`.  The directive also uses the `@HostBinding` decorator to bind to the Bootstrap class `open` to the directive property `isOpen` to support `toggleOpen`()`.
 
 This was a simple step and a good example of utilizing a custom directive.
 
 ### Phase 4: Services & Dependency Injection
 
-In this step, I created two services, `recipe` and `shopping-list`, to store the recipe and ingredients arrays respectively.  Adding these services centralized the two lists and also streamlined the methods triggered by click events.  Instead of passing data child to parent, upstream multiple times, the data now goes straight to the service and out from there wherever it is needed.
+In this step, I created two services, `recipe` and `shopping-list`, to store the recipe and ingredients arrays respectively.  Adding these services centralized the two lists and also streamlined the methods triggered by click events.  Instead of passing data from child to parent, upstream multiple times, the data now goes straight to the service and out from there wherever it is needed.
 
 One important concept from this step was, when adding ingredients to the shopping list, emitting a slice, or copy of the new array, instead of the original to ensure that the original does not get edited accidentally.  I pulled in the Observer pattern to subscribe the shopping list to the change so it displays the updated array.
 
@@ -92,11 +92,11 @@ Another takeaway was adding the following logic to check whether the app is in e
   this.editMode = params['id'] != null;
 ```
 
-I liked seeing how using routing cleaned up the code by simplifying the syntax.  Even using the `routerLinkActive` attribute kept adding the `active` class easy and straightforward for active links.
+I liked seeing how using routing cleaned up the code by simplifying the syntax.  Even using the `routerLinkActive` attribute made it simple to add the `active` class for active links.
 
 ### Phase 6: Observables
 
-In this phase, I replaced the `EventEmitters` with `Subject`.  This meant also changing the `emit` methods to `next` and storing the `Subscription` as a property.  Then, I implements `OnDestroy` to unsubscribe the observers to prevent memory leaks or unexpected side effects.
+In this phase, I replaced the `EventEmitters` with `Subject`.  This meant also changing the `emit` methods to `next` and storing the `Subscription` as a property.  Then, I implemented `OnDestroy` to unsubscribe the observers to prevent memory leaks or unexpected side effects.
 
 ### Phase 7: Forms
 
@@ -124,6 +124,6 @@ Next up is dynamic components.  Instead of displaying an error message on the pa
 
 ## Acknowledgments
 
-Shoutout to Maximilian Schwarzm&uuml;ller for his course [Angular - The Complete Guide](https://pro.academind.com/courses/). Thank you, Max, for your hard work creating such a comprehensive course.
+Shoutout to Maximilian Schwarzm&uuml;ller for his course [Angular - The Complete Guide](https://pro.academind.com/courses/). Thank you, Max, for your hard work in creating such a comprehensive course.
 
 Another shoutout to [Codefi CodeLabs](https://www.codelabsdash.com/) for putting together this course and pulling in the best resources for learning software development. The code coaches and this semester's cohort have been awesome to work with.
