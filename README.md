@@ -112,11 +112,13 @@ Another neat feature was adding an image preview when adding a new recipe - grea
 
 In this part of the project, I set up a backend in Firebase using Realtime Database to store data.  The DataStorage Service is responsible for both storing and fetching recipes.  Both `map` and `tap` are used in `fetchRecipes()` to correctly handle the recipe data and display it on the recipes page.
 
+### Phase 9: Authentication & Route Protection in Angular
 
+The next step of the project was incorporating authentication.  I added an Auth Service to handle signing up, signing in, showing error messages during login, and storing tokens to fetch and save data from the backend in Firebase.  I also used a router guard to protect the recipes page from unauthenticated access.  Finally, I updated the header content to display the appropriate navigation links based on user status.
 
 ## Reflection
 
-## Acknowledgements
+## Acknowledgments
 
 Shoutout to Maximilian Schwarzm&uuml;ller for his course [Angular - The Complete Guide](https://pro.academind.com/courses/). Thank you, Max, for your hard work creating such a comprehensive course.
 
