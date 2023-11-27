@@ -102,7 +102,7 @@ In this phase, I replaced the `EventEmitters` with `Subject`.  This meant also c
 
 This part of the project involved adding a template-driven shopping list form and a reactive recipe edit form.
 
-One thing I liked doing was tweakeing the Add button so that it would change to Update when in edit mode. This meant I didn't need to add a separate button; the text and functionality in the background would simply switch modes. A related feature was conditionally displaying the Delete button when in edit mode.
+One thing I liked doing was tweaking the Add button so that it would change to Update when in edit mode. This meant I didn't need to add a separate button; the text and functionality in the background would simply switch modes. A related feature was conditionally displaying the Delete button when in edit mode.
 
 The Observer method came in handy here. I set up a `recipesChanged` subject in the `RecipesService` so that the displayed list of recipes would update any time a recipe was edited or a new recipe was added.
 
@@ -115,6 +115,10 @@ In this part of the project, I set up a backend in Firebase using Realtime Datab
 ### Phase 9: Authentication & Route Protection in Angular
 
 The next step of the project was incorporating authentication.  I added an Auth Service to handle signing up, signing in, showing error messages during login, and storing tokens to fetch and save data from the backend in Firebase.  I also used a router guard to protect the recipes page from unauthenticated access.  Finally, I updated the header content to display the appropriate navigation links based on user status.
+
+### Phase 10: Dynamic Components
+
+Next up is dynamic components.  Instead of displaying an error message on the page above the login form, I made the message display as a pop-up that could be clicked out of or closed.  I explored two ways of doing this:  with `*ngIf` and programmatically by creating a component factory and using a `ViewContainerRef`.
 
 ## Reflection
 
